@@ -1,0 +1,16 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.DS_Store
+.env
+.env.*
+!.env.example
+output/bundles/*
+output/templates/*
+output/archives/*
+!output/**/.gitkeep
+public/previews/*
+!public/previews/.gitkeep
+playwright-report/
+test-results/

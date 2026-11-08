@@ -1,0 +1,36 @@
+{
+  "name": "pageforgex",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "PageForgeX - browser intelligence, component registry and JavaScript bundle compilation engine",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "pageforgex": "./dist/src/cli/index.js"
+  },
+  "main": "./dist/src/app/MonolithApp.js",
+  "types": "./dist/src/app/MonolithApp.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/cli/index.ts",
+    "start": "node dist/src/cli/index.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dashboard": "node dist/src/cli/index.js dashboard"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.48.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.2"
+  }
+}

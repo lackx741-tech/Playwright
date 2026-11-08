@@ -344,3 +344,52 @@ Playwright + Cheerio + Component Registry + JavaScript Bundle Export
 * Security: Sanitize imported HTML, restrict untrusted scripts, and prevent server-side browser access to internal networks.
 * Asset rights: Only reproduce and redistribute website assets or templates when authorized.
 * Critical distinction: DOM extraction is not equivalent to source-code recovery. The system can reconstruct supported layouts and components, but cannot guarantee an exact recreation of an arbitrary website’s original application logic.
+
+⸻
+
+🚀 7. SCAFFOLD QUICKSTART
+
+📖 **Full instructions: [RUNNING.md](RUNNING.md)** — requirements, install, CLI reference,
+dashboard, configuration, and troubleshooting.
+
+The repository now ships a working TypeScript scaffold of the architecture above.
+
+Install and verify:
+
+```bash
+npm install
+npm run typecheck
+npm test          # 7 files / 50 tests
+npm run build     # emits dist/
+```
+
+Optional browser engine for live URL scanning:
+
+```bash
+npx playwright install chromium
+```
+
+CLI surface (`npm run dev -- <command>` or `npm start -- <command>`):
+
+| Command | Purpose |
+| --- | --- |
+| `scan <url>` | Playwright render, capture DOM, detect components, build + export bundle |
+| `parse <file.html>` | Cheerio parse and DOM statistics |
+| `components` | Print the built-in component schemas |
+| `template <file.html> --name <name> [--out file]` | Build and persist a template definition |
+| `build <file.html> --name <name> [--no-zip]` | Compile a bundle and export JS/HTML/JSON/ZIP |
+| `dashboard [--port 12000]` | Serve the visual builder dashboard and JSON API |
+| `validate-url <url>` | Run the security URL validator |
+
+Example end-to-end run against a local file:
+
+```bash
+npm run dev -- build tests/fixtures/sample.html --name demo
+# -> output/bundles/demo.js, output/bundles/demo.js.map,
+#    output/templates/demo.html, output/templates/demo.manifest.json,
+#    output/archives/demo.zip
+```
+
+Configuration is read from `PAGEFORGEX_*` environment variables (see `.env.example`).
+URL scanning blocks private network targets unless `PAGEFORGEX_ALLOW_PRIVATE_NETWORK=true`.
+

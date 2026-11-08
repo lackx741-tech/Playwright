@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sample Store</title>
+  <link rel="stylesheet" href="/assets/app.css">
+  <script src="https://cdn.example.com/analytics.js"></script>
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-dark">
+      <span class="navbar-brand">Acme</span>
+      <a class="navbar-link" href="/shop">Shop</a>
+    </nav>
+  </header>
+  <main class="container">
+    <h1>Products</h1>
+    <article class="card">
+      <h3>Widget</h3>
+      <p>Cheap widget</p>
+    </article>
+    <button class="btn btn-primary">Buy now</button>
+    <form action="/checkout" method="post">
+      <input name="email" type="email" required>
+    </form>
+    <table>
+      <thead><tr><th>Name</th><th>Price</th></tr></thead>
+      <tbody><tr><td>Widget</td><td>10</td></tr></tbody>
+    </table>
+    <img src="/assets/widget.png" alt="widget">
+  </main>
+  <footer>© Acme</footer>
+</body>
+</html>
